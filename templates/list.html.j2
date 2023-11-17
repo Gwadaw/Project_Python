@@ -1,0 +1,26 @@
+{% extends "base.html.j2" %}
+
+{% block title %}To-Do Liste{% endblock %}
+
+{% block content %}
+    <form action="/task" method="post">
+        <p><input type="text" name="content"></p>
+        <input type="submit" value="ajouter tâche">
+    </form>
+ <ol>
+        {% for task in tasks %}
+       
+        <li>
+            {% if task.done %}
+            <strike>{{ task.content }}</strike>
+            {% else %}
+            {{ task.content }}
+            {% endif %}
+<a href="/delete/{{ loop.index0 }}">Supprimer</a>
+<a href="/done/{{ loop.index0 }}">fini</a>
+
+        </li>
+    
+        {% endfor %}
+        </ol>
+{% endblock %}

@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
 </head>
 <body>
-    {% block body %}{% endblock %}
+    <div class="Label">
+        <h1>Todo liste</h1>
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>
